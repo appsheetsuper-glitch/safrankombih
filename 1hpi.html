@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manajemen Materi Perkuliahan</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      body {
+        background: white;
+      }
+      #searchSection, #btnPrint {
+        display: none;
+      }
+      table {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 p-4 sm:p-8">
+
+  <div class="max-w-6xl mx-auto space-y-6">
+
+    <!-- HEADER -->
+    <div class="bg-white border rounded-xl p-4 sm:p-5 shadow-sm">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+
+        <div class="text-center sm:text-left">
+          <h1 class="text-lg sm:text-2xl font-bold">
+            HUKUM PIDANA ISLAM [HPI]
+          </h1>
+          <p id="tanggal" class="text-gray-500 text-sm"></p>
+        </div>
+
+        <div class="text-center sm:text-right">
+          <p class="text-xs text-gray-500">Waktu Sekarang</p>
+          <p id="jam" class="text-lg sm:text-xl font-semibold font-mono"></p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEARCH + FILTER + PRINT -->
+    <div id="searchSection" class="bg-white border rounded-xl p-4 shadow-sm flex flex-col sm:flex-row gap-3">
+
+      <input 
+        type="text" 
+        id="search"
+        placeholder="Cari topik..."
+        class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+      >
+
+      <select 
+        id="filterPertemuan"
+        class="w-full sm:w-56 border rounded-lg px-3 py-2"
+      >
+        <option value="">Semua Pertemuan</option>
+      </select>
+
+      <button id="btnPrint"
+        onclick="window.print()"
+        class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">
+        Cetak PDF
+      </button>
+
+    </div>
+
+    <!-- TABLE -->
+    <div class="bg-white border rounded-xl shadow-sm overflow-x-auto">
+      <table class="w-full text-sm border">
+
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="px-4 py-3 border">Pertemuan</th>
+            <th class="px-4 py-3 border">Topik / Subtopik</th>
+            <th class="px-4 py-3 border">CPMK</th>
+            <th class="px-4 py-3 border">Metode</th>
+            <th class="px-4 py-3 border">Tugas / Penilaian</th>
+            <th class="px-4 py-3 border">Materi</th>
+            <th class="px-4 py-3 border">Slide</th>
+          </tr>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+
+      </table>
+    </div>
+
+  </div>
+
+<script>
+lucide.createIcons();
+
+// ================= API =================
+const API_URL = "https://script.google.com/macros/s/AKfycbz8-nx2iB9o0l9X9dKIs7BtzyhmhDNJck2PFgc4c-ikRCJ2PNh6E9K6ZN3sBkFkewxJ/exec";
+
+// ================= LOAD DATA =================
+async function loadData() {
+  try {
+    const res = await fetch(API_URL);
+    const data = await res.json();
+
+    const table = document.getElementById("tableBody");
+    const filter = document.getElementById("filterPertemuan");
+
+    table.innerHTML = "";
+    filter.innerHTML = '<option value="">Semua Pertemuan</option>';
+
+    let set = new Set();
+
+    data.forEach(row => {
+      set.add(row[0]);
+
+      table.innerHTML += `
+        <tr class="hover:bg-gray-50">
+          <td class="px-4 py-2 border">${row[0]}</td>
+          <td class="px-4 py-2 border">${row[1]}</td>
+          <td class="px-4 py-2 border">${row[2]}</td>
+          <td class="px-4 py-2 border">${row[3]}</td>
+          <td class="px-4 py-2 border">${row[4]}</td>
+
+          <td class="px-4 py-2 border text-center">
+            ${row[5] ? `
+              <a href="${row[5]}" target="_blank">
+                <i data-lucide="link" class="w-4 h-4 mx-auto text-blue-600"></i>
+              </a>` : '-'}
+          </td>
+
+          <td class="px-4 py-2 border text-center">
+            ${row[6] ? `
+              <a href="${row[6]}" target="_blank">
+                <i data-lucide="file-text" class="w-4 h-4 mx-auto text-green-600"></i>
+              </a>` : '-'}
+          </td>
+        </tr>
+      `;
+    });
+
+    set.forEach(p => {
+      filter.innerHTML += `<option value="${p}">Pertemuan ${p}</option>`;
+    });
+
+    lucide.createIcons();
+
+  } catch (err) {
+    console.error("Error:", err);
+  }
+}
+
+// ================= SEARCH =================
+document.getElementById("search").addEventListener("keyup", function() {
+  let val = this.value.toLowerCase();
+
+  document.querySelectorAll("#tableBody tr").forEach(row => {
+    row.style.display = row.innerText.toLowerCase().includes(val) ? "" : "none";
+  });
+});
+
+// ================= FILTER =================
+document.getElementById("filterPertemuan").addEventListener("change", function() {
+  let val = this.value;
+
+  document.querySelectorAll("#tableBody tr").forEach(row => {
+    row.style.display = (val === "" || row.children[0].innerText === val) ? "" : "none";
+  });
+});
+
+// ================= JAM =================
+setInterval(() => {
+  document.getElementById("jam").innerText =
+    new Date().toLocaleTimeString("id-ID", { hour12: false });
+}, 1000);
+
+// ================= TANGGAL =================
+document.getElementById("tanggal").innerText =
+  new Date().toLocaleDateString("id-ID", {
+    weekday:'long', year:'numeric', month:'long', day:'numeric'
+  });
+
+// INIT
+loadData();
+</script>
+
+</body>
+</html>
