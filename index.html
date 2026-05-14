@@ -41,20 +41,45 @@
     </div>
 
     <!-- WORKFLOW LINKS -->
-    <div class="space-y-3">
+<div class="space-y-3">
 
-        <div onclick="toggleSubmenu('modul')" class="cursor-pointer group flex items-center justify-between bg-white p-4 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
-
-            <div class="flex items-center gap-3">
-                <i data-lucide="book-open" class="w-5 h-5 text-blue-500"></i>
-                <div>
-                    <p class="font-medium text-slate-800">Modul Pembelajaran</p>
-                    <p class="text-xs text-slate-500">Materi kuliah</p>
-                </div>
+    <!-- Tombol Utama Modul Pembelajaran -->
+    <div onclick="toggleSubmenu('modul')" class="cursor-pointer group flex items-center justify-between bg-white p-4 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="flex items-center gap-3">
+            <i data-lucide="book-open" class="w-5 h-5 text-blue-500"></i>
+            <div>
+                <p class="font-medium text-slate-800">Modul Pembelajaran</p>
+                <p class="text-xs text-slate-500">Materi kuliah</p>
             </div>
-
-            <span class="text-slate-400 group-hover:text-blue-500 transition-transform" id="modul-arrow">→</span>
         </div>
+        <span class="text-slate-400 group-hover:text-blue-500 transition-transform" id="modul-arrow">→</span>
+    </div>
+
+    <!-- Container Submenu (Tersembunyi secara default, dikontrol oleh JavaScript toggleSubmenu) -->
+    <div id="modul-submenu" class="hidden pl-6 space-y-2 transition-all duration-300">
+        
+        <!-- Submenu 1: Sistem Hukum Indonesia -->
+        <a href="URL_LINK_SISTEM_HUKUM_INDONESIA" class="group flex items-center justify-between bg-slate-50 p-3 rounded-lg border border-slate-100 hover:bg-blue-50 hover:border-blue-200 transition">
+            <div class="flex items-center gap-2">
+                <i data-lucide="file-text" class="w-4 h-4 text-slate-500 group-hover:text-blue-500"></i>
+                <span class="text-sm font-medium text-slate-700 group-hover:text-blue-600">Sistem Hukum Indonesia</span>
+            </div>
+            <span class="text-xs text-slate-400 group-hover:text-blue-500">→</span>
+        </a>
+
+        <!-- Submenu 2: Hukum Pidana -->
+        <a href="URL_LINK_HUKUM_PIDANA" class="group flex items-center justify-between bg-slate-50 p-3 rounded-lg border border-slate-100 hover:bg-blue-50 hover:border-blue-200 transition">
+            <div class="flex items-center gap-2">
+                <i data-lucide="scale" class="w-4 h-4 text-slate-500 group-hover:text-blue-500"></i>
+                <span class="text-sm font-medium text-slate-700 group-hover:text-blue-600">Hukum Pidana</span>
+            </div>
+            <span class="text-xs text-slate-400 group-hover:text-blue-500">→</span>
+        </a>
+
+    </div>
+
+</div>
+
 
         <!-- Submenu Modul -->
         <div id="submenu-modul" class="hidden ml-8 space-y-2">
