@@ -72,36 +72,33 @@
     </style>
 </head>
 
-<body class="min-h-screen text-gray-900 antialiased flex items-center justify-center p-4 py-12 relative">
+<body class="min-h-screen text-gray-900 antialiased flex items-center justify-center p-4 py-12 relative overflow-y-auto">
 
     <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[400px] bg-white rounded-full filter blur-[120px] opacity-80 pointer-events-none z-0"></div>
 
     <!-- Main Container -->
     <main class="w-full max-w-[380px] my-auto bg-white/40 backdrop-blur-2xl border border-white/60 rounded-[2.5rem] p-8 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] animate-float relative z-10">
         
-        <header class="mb-8 fade-in-up delay-100">
-            <!-- Profile Section (Horizontal) -->
-            <div class="flex items-center gap-4 mb-6">
-                <!-- Profile Image -->
-                <div class="relative w-16 h-16 shrink-0">
-                    <div class="absolute inset-0 bg-black/5 rounded-full blur-md transform translate-y-1"></div>
-                    <img 
-                        src="profile.jpg" 
-                        alt="Safran Kombih, M.H" 
-                        onerror="this.src='https://placehold.co/150x150/000/fff?text=SK'"
-                        class="relative w-full h-full object-cover rounded-full border-2 border-white shadow-sm"
-                    >
-                </div>
-                
-                <!-- Profile Info -->
-                <div class="flex flex-col">
-                    <h1 class="text-lg font-bold text-black tracking-tight leading-tight">Safran Kombih, M.H</h1>
-                    <p class="text-[10px] font-semibold text-gray-500 uppercase tracking-[0.15em] mt-0.5">Dosen Ilmu Hukum</p>
-                </div>
+        <header class="mb-8 fade-in-up delay-100 flex flex-col items-center text-center">
+            <!-- Centered Profile Image -->
+            <div class="relative w-20 h-20 mb-4 shrink-0">
+                <div class="absolute inset-0 bg-black/5 rounded-full blur-md transform translate-y-1"></div>
+                <img 
+                    src="profile.jpg" 
+                    alt="Safran Kombih, M.H" 
+                    onerror="this.src='https://placehold.co/150x150/000/fff?text=SK'"
+                    class="relative w-full h-full object-cover rounded-full border-2 border-white shadow-sm"
+                >
+            </div>
+            
+            <!-- Profile Info (Below Photo) -->
+            <div class="mb-6">
+                <h1 class="text-xl font-bold text-black tracking-tight leading-tight">Safran Kombih, M.H</h1>
+                <p class="text-[10px] font-semibold text-gray-500 uppercase tracking-[0.15em] mt-1.5">Dosen Ilmu Hukum</p>
             </div>
 
-            <!-- Digital Clock Section (Centered below profile) -->
-            <div class="text-center pt-2 border-t border-black/5">
+            <!-- Digital Clock Section (Below Title) -->
+            <div class="w-full pt-4 border-t border-black/5">
                 <div id="time" class="text-5xl font-bold tracking-tighter text-black mb-1 tabular-nums">
                     00:00:00
                 </div>
@@ -113,7 +110,6 @@
 
         <div class="flex flex-col gap-6">
             
-            <!-- Section Pembelajaran -->
             <section class="flex flex-col gap-3 fade-in-up delay-200">
                 <div class="flex items-center gap-3 mb-1">
                     <div class="h-[1px] flex-grow bg-gradient-to-r from-transparent to-gray-300"></div>
@@ -124,7 +120,7 @@
                 </div>
                 
                 <!-- Tombol Sistem Hukum -->
-                <a href="hki.html" class="group relative w-full h-14 px-4 rounded-2xl bg-white/50 border border-white/60 hover:bg-white hover:shadow-[0_8px_20px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all duration-300 flex items-center">
+                <a href="1hpi.html" class="group relative w-full h-14 px-4 rounded-2xl bg-white/50 border border-white/60 hover:bg-white hover:shadow-[0_8px_20px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all duration-300 flex items-center">
                     <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 group-hover:text-black group-hover:bg-gray-200 transition-colors shrink-0 shadow-sm">
                         <i class="fas fa-scale-balanced text-sm"></i>
                     </div>
@@ -133,7 +129,7 @@
                 </a>
 
                 <!-- Tombol Hukum Pidana -->
-                <a href="hpi.html" class="group relative w-full h-14 px-4 rounded-2xl bg-white/50 border border-white/60 hover:bg-white hover:shadow-[0_8px_20px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all duration-300 flex items-center">
+                <a href="2.hki.html" class="group relative w-full h-14 px-4 rounded-2xl bg-white/50 border border-white/60 hover:bg-white hover:shadow-[0_8px_20px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all duration-300 flex items-center">
                     <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 group-hover:text-black group-hover:bg-gray-200 transition-colors shrink-0 shadow-sm">
                         <i class="fas fa-gavel text-sm"></i>
                     </div>
@@ -142,7 +138,6 @@
                 </a>
             </section>
 
-            <!-- Section Akademik -->
             <section class="flex flex-col gap-3 fade-in-up delay-300">
                 <div class="flex items-center gap-3 mb-1">
                     <div class="h-[1px] flex-grow bg-gradient-to-r from-transparent to-gray-300"></div>
