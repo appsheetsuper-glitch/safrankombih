@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Akademik Link</title>
+    <title>Portal Akademik - Safran Kombih, M.H</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -13,11 +13,9 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #e5e7eb;
-            /* Background gradient abu-abu terang ke putih */
             background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #d1d5db 100%);
         }
 
-        /* Animasi mengambang sangat halus untuk keseluruhan card */
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-8px); }
@@ -27,7 +25,6 @@
             animation: float 6s ease-in-out infinite;
         }
 
-        /* Animasi masuk bertahap (Staggered Fade In Up) */
         @keyframes fadeInUp {
             from { 
                 opacity: 0; 
@@ -43,19 +40,16 @@
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         
-        /* Delay untuk setiap elemen agar muncul berurutan */
         .delay-100 { animation-delay: 100ms; }
         .delay-200 { animation-delay: 200ms; }
         .delay-300 { animation-delay: 300ms; }
         .delay-400 { animation-delay: 400ms; }
         .delay-500 { animation-delay: 500ms; }
 
-        /* Kustomisasi scrollbar jika dibutuhkan */
         ::-webkit-scrollbar {
             width: 0px;
         }
 
-        /* Efek garis mengkilap pada tombol utama */
         .btn-shimmer {
             position: relative;
             overflow: hidden;
@@ -67,7 +61,7 @@
             left: -100%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
             transform: skewX(-20deg);
             transition: all 0.5s ease;
         }
@@ -78,19 +72,34 @@
     </style>
 </head>
 
-<body class="min-h-screen text-gray-900 antialiased flex items-center justify-center p-4 py-12 overflow-x-hidden relative">
+<body class="min-h-screen text-gray-900 antialiased flex items-center justify-center p-4 py-12 relative">
 
-    <!-- Ornamen visual cahaya di belakang card (Warna putih murni untuk efek glass) -->
     <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[400px] bg-white rounded-full filter blur-[120px] opacity-80 pointer-events-none z-0"></div>
 
-    <!-- Container Utama: Efek Kaca Transparan dan Putih (Light Glassmorphism) -->
+    <!-- Main Container -->
     <main class="w-full max-w-[380px] my-auto bg-white/40 backdrop-blur-2xl border border-white/60 rounded-[2.5rem] p-8 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] animate-float relative z-10">
         
         <header class="text-center mb-8 fade-in-up delay-100">
+            <!-- Profile Image -->
+            <div class="relative w-24 h-24 mx-auto mb-4">
+                <div class="absolute inset-0 bg-black/5 rounded-full blur-md transform translate-y-2"></div>
+                <img 
+                    src="profile.jpg" 
+                    alt="Safran Kombih, M.H" 
+                    onerror="this.src='https://placehold.co/150x150/000/fff?text=SK'"
+                    class="relative w-full h-full object-cover rounded-full border-4 border-white shadow-sm"
+                >
+            </div>
+            
+            <!-- Profile Info -->
+            <h1 class="text-xl font-bold text-black tracking-tight mb-0.5">Safran Kombih, M.H</h1>
+            <p class="text-xs font-medium text-gray-500 uppercase tracking-widest mb-6">Dosen Ilmu Hukum</p>
+
+            <!-- Digital Clock -->
             <div id="time" class="text-5xl font-bold tracking-tighter text-black mb-2 tabular-nums">
                 00:00:00
             </div>
-            <div id="date" class="text-xs text-gray-500 font-bold tracking-widest uppercase">
+            <div id="date" class="text-[10px] text-gray-400 font-bold tracking-[0.2em] uppercase">
                 Memuat tanggal...
             </div>
         </header>
@@ -99,13 +108,12 @@
             
             <!-- Section Pembelajaran -->
             <section class="flex flex-col gap-3 fade-in-up delay-200">
-                <!-- Divider Label -->
                 <div class="flex items-center gap-3 mb-1">
-                    <div class="h-[1px] flex-grow bg-gradient-to-r from-transparent to-gray-400"></div>
-                    <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] flex items-center gap-2">
+                    <div class="h-[1px] flex-grow bg-gradient-to-r from-transparent to-gray-300"></div>
+                    <h2 class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] flex items-center gap-2">
                         <i class="fas fa-book-open text-xs"></i> Pembelajaran
                     </h2>
-                    <div class="h-[1px] flex-grow bg-gradient-to-l from-transparent to-gray-400"></div>
+                    <div class="h-[1px] flex-grow bg-gradient-to-l from-transparent to-gray-300"></div>
                 </div>
                 
                 <!-- Tombol Sistem Hukum -->
@@ -113,33 +121,32 @@
                     <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 group-hover:text-black group-hover:bg-gray-200 transition-colors shrink-0 shadow-sm">
                         <i class="fas fa-scale-balanced text-sm"></i>
                     </div>
-                    <span class="font-medium text-sm ml-4 flex-grow text-gray-700 group-hover:text-black transition-colors">Sistem Hukum Indonesia</span>
-                    <i class="fas fa-chevron-right text-xs text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all shrink-0"></i>
+                    <span class="font-semibold text-sm ml-4 flex-grow text-gray-700 group-hover:text-black transition-colors">Sistem Hukum Indonesia</span>
+                    <i class="fas fa-chevron-right text-xs text-gray-300 group-hover:text-black group-hover:translate-x-1 transition-all shrink-0"></i>
                 </a>
 
                 <!-- Tombol Hukum Pidana -->
-                <a href="2.hki.html" class="group relative w-full h-14 px-4 rounded-2xl bg-white/50 border border-white/60 hover:bg-white hover:shadow-[0_8px_20px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all duration-300 flex items-center">
+                <a href="2hki.html" class="group relative w-full h-14 px-4 rounded-2xl bg-white/50 border border-white/60 hover:bg-white hover:shadow-[0_8px_20px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all duration-300 flex items-center">
                     <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 group-hover:text-black group-hover:bg-gray-200 transition-colors shrink-0 shadow-sm">
                         <i class="fas fa-gavel text-sm"></i>
                     </div>
-                    <span class="font-medium text-sm ml-4 flex-grow text-gray-700 group-hover:text-black transition-colors">Hukum Pidana</span>
-                    <i class="fas fa-chevron-right text-xs text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all shrink-0"></i>
+                    <span class="font-semibold text-sm ml-4 flex-grow text-gray-700 group-hover:text-black transition-colors">Hukum Pidana</span>
+                    <i class="fas fa-chevron-right text-xs text-gray-300 group-hover:text-black group-hover:translate-x-1 transition-all shrink-0"></i>
                 </a>
             </section>
 
             <!-- Section Akademik -->
             <section class="flex flex-col gap-3 fade-in-up delay-300">
-                <!-- Divider Label -->
                 <div class="flex items-center gap-3 mb-1">
-                    <div class="h-[1px] flex-grow bg-gradient-to-r from-transparent to-gray-400"></div>
-                    <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] flex items-center gap-2">
+                    <div class="h-[1px] flex-grow bg-gradient-to-r from-transparent to-gray-300"></div>
+                    <h2 class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] flex items-center gap-2">
                         <i class="fas fa-briefcase text-xs"></i> Akademik
                     </h2>
-                    <div class="h-[1px] flex-grow bg-gradient-to-l from-transparent to-gray-400"></div>
+                    <div class="h-[1px] flex-grow bg-gradient-to-l from-transparent to-gray-300"></div>
                 </div>
 
-                <!-- Tombol Pengumpulan Tugas (Highlight Hitam agar memukau) -->
-                <a href="#link-pengumpulan-tugas" class="group btn-shimmer w-full h-14 px-4 rounded-2xl bg-black text-white hover:bg-gray-900 transition-all duration-300 flex items-center shadow-[0_8px_20px_rgba(0,0,0,0.2)] hover:-translate-y-0.5">
+                <!-- Tombol Pengumpulan Tugas -->
+                <a href="#link-pengumpulan-tugas" class="group btn-shimmer w-full h-14 px-4 rounded-2xl bg-black text-white hover:bg-gray-900 transition-all duration-300 flex items-center shadow-[0_8px_20px_rgba(0,0,0,0.15)] hover:-translate-y-0.5">
                     <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
                         <i class="fas fa-upload text-sm"></i>
                     </div>
@@ -152,32 +159,31 @@
                     <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 group-hover:text-black group-hover:bg-gray-200 transition-colors shrink-0 shadow-sm">
                         <i class="far fa-calendar-alt text-sm"></i>
                     </div>
-                    <span class="font-medium text-sm ml-4 flex-grow text-gray-700 group-hover:text-black transition-colors">Jadwal Perkuliahan</span>
-                    <i class="fas fa-chevron-right text-xs text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all shrink-0"></i>
+                    <span class="font-semibold text-sm ml-4 flex-grow text-gray-700 group-hover:text-black transition-colors">Jadwal Perkuliahan</span>
+                    <i class="fas fa-chevron-right text-xs text-gray-300 group-hover:text-black group-hover:translate-x-1 transition-all shrink-0"></i>
                 </a>
             </section>
 
         </div>
 
         <footer class="mt-10 fade-in-up delay-400">
-            <!-- Ikon Sosial Media -->
             <div class="flex items-center justify-center gap-5">
-                <a href="#link-whatsapp" class="w-10 h-10 rounded-full border border-white/60 bg-white/50 flex items-center justify-center text-sm text-gray-600 hover:text-black hover:bg-white hover:-translate-y-1 hover:shadow-[0_8px_15px_rgba(0,0,0,0.05)] transition-all duration-300" aria-label="WhatsApp">
+                <a href="#link-whatsapp" class="w-10 h-10 rounded-full border border-white/60 bg-white/50 flex items-center justify-center text-sm text-gray-500 hover:text-black hover:bg-white hover:-translate-y-1 hover:shadow-[0_8px_15px_rgba(0,0,0,0.05)] transition-all duration-300" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="#link-instagram" class="w-10 h-10 rounded-full border border-white/60 bg-white/50 flex items-center justify-center text-sm text-gray-600 hover:text-black hover:bg-white hover:-translate-y-1 hover:shadow-[0_8px_15px_rgba(0,0,0,0.05)] transition-all duration-300" aria-label="Instagram">
+                <a href="#link-instagram" class="w-10 h-10 rounded-full border border-white/60 bg-white/50 flex items-center justify-center text-sm text-gray-500 hover:text-black hover:bg-white hover:-translate-y-1 hover:shadow-[0_8px_15px_rgba(0,0,0,0.05)] transition-all duration-300" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#link-facebook" class="w-10 h-10 rounded-full border border-white/60 bg-white/50 flex items-center justify-center text-sm text-gray-600 hover:text-black hover:bg-white hover:-translate-y-1 hover:shadow-[0_8px_15px_rgba(0,0,0,0.05)] transition-all duration-300" aria-label="Facebook">
+                <a href="#link-facebook" class="w-10 h-10 rounded-full border border-white/60 bg-white/50 flex items-center justify-center text-sm text-gray-500 hover:text-black hover:bg-white hover:-translate-y-1 hover:shadow-[0_8px_15px_rgba(0,0,0,0.05)] transition-all duration-300" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="#link-youtube" class="w-10 h-10 rounded-full border border-white/60 bg-white/50 flex items-center justify-center text-sm text-gray-600 hover:text-black hover:bg-white hover:-translate-y-1 hover:shadow-[0_8px_15px_rgba(0,0,0,0.05)] transition-all duration-300" aria-label="YouTube">
+                <a href="#link-youtube" class="w-10 h-10 rounded-full border border-white/60 bg-white/50 flex items-center justify-center text-sm text-gray-500 hover:text-black hover:bg-white hover:-translate-y-1 hover:shadow-[0_8px_15px_rgba(0,0,0,0.05)] transition-all duration-300" aria-label="YouTube">
                     <i class="fab fa-youtube"></i>
                 </a>
             </div>
             
-            <p class="text-center text-[10px] text-gray-500 mt-6 font-semibold tracking-wide fade-in-up delay-500">
-                © <span id="currentYear"></span> Portal Hukum.<br>All rights reserved.
+            <p class="text-center text-[9px] text-gray-400 mt-8 font-bold tracking-[0.2em] uppercase fade-in-up delay-500">
+                © <span id="currentYear"></span> SAFRAN KOMBIH PORTAL
             </p>
         </footer>
 
@@ -187,7 +193,6 @@
         function updateClock() {
             const now = new Date();
             
-            // Format Jam (24 jam)
             const timeOptions = { 
                 hour: '2-digit', 
                 minute: '2-digit', 
@@ -195,7 +200,6 @@
                 hour12: false 
             };
             
-            // Format Tanggal
             const dateOptions = { 
                 weekday: 'long', 
                 year: 'numeric', 
