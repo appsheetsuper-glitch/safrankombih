@@ -3,241 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>safran kombih</title>
-
-    <!-- Tailwind -->
+    <title>Portal Akademik Link</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Kustomisasi animasi pulse lembut untuk jam */
+        .clock-glow {
+            text-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+        }
+        /* Efek glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-button {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
 </head>
 
-<body class="bg-gradient-to-br from-slate-100 to-slate-200 min-h-screen flex items-center justify-center p-6">
+<body class="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 min-h-screen text-white antialiased flex flex-col items-center justify-center p-4 relative overflow-hidden">
 
-<div class="w-full max-w-md">
+    <!-- Efek cahaya latar belakang -->
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-blob"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-blob animation-delay-2000"></div>
 
-    <!-- PROFILE -->
-    <div class="bg-white/80 backdrop-blur-lg rounded-2xl p-6 shadow-lg text-center mb-5 sticky top-0 z-10">
-        <img src="profile.jpg" alt="Profile Picture"
-            class="w-24 h-24 mx-auto rounded-full mb-3 border-4 border-white shadow">
-
-        <h2 class="text-lg font-semibold text-slate-800">Safran Kombih, M.H.</h2>
-        <p class="text-sm text-slate-500">
-            Sistem Akademik • Digital Platform
-        </p>
-    </div>
-
-    <!-- CLOCK -->
-    <div class="bg-white rounded-2xl shadow p-5 text-center mb-5 sticky top-0 z-10">
-        <p id="clock" class="text-3xl font-bold text-slate-800 tracking-wider">
-            00:00:00
-        </p>
-        <p id="date" class="text-sm text-slate-500 mt-1">
-            Senin, 1 Januari 2026
-        </p>
-    </div>
-
-    <!-- WORKFLOW LINKS -->
-<div class="space-y-3">
-
-    <!-- Tombol Utama Modul Pembelajaran -->
-    <div onclick="toggleSubmenu('modul')" class="cursor-pointer group flex items-center justify-between bg-white p-4 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
-        <div class="flex items-center gap-3">
-            <i data-lucide="book-open" class="w-5 h-5 text-blue-500"></i>
-            <div>
-                <p class="font-medium text-slate-800">Modul Pembelajaran</p>
-                <p class="text-xs text-slate-500">Materi kuliah</p>
-            </div>
-        </div>
-        <span class="text-slate-400 group-hover:text-blue-500 transition-transform" id="modul-arrow">→</span>
-    </div>
-
-    <!-- Container Submenu (Tersembunyi secara default, dikontrol oleh JavaScript toggleSubmenu) -->
-    <div id="modul-submenu" class="hidden pl-6 space-y-2 transition-all duration-300">
+    <main class="w-full max-w-md relative z-10 py-10 flex flex-col gap-8">
         
-        <!-- Submenu 1: Sistem Hukum Indonesia -->
-        <a href="URL_LINK_SISTEM_HUKUM_INDONESIA" class="group flex items-center justify-between bg-slate-50 p-3 rounded-lg border border-slate-100 hover:bg-blue-50 hover:border-blue-200 transition">
-            <div class="flex items-center gap-2">
-                <i data-lucide="file-text" class="w-4 h-4 text-slate-500 group-hover:text-blue-500"></i>
-                <span class="text-sm font-medium text-slate-700 group-hover:text-blue-600">Sistem Hukum Indonesia</span>
+        <header class="text-center glass-card p-6 rounded-3xl shadow-2xl">
+            <div id="time" class="text-5xl md:text-6xl font-bold tracking-tight text-blue-100 clock-glow mb-2">
+                00:00:00
             </div>
-            <span class="text-xs text-slate-400 group-hover:text-blue-500">→</span>
-        </a>
-
-        <!-- Submenu 2: Hukum Pidana -->
-        <a href="URL_LINK_HUKUM_PIDANA" class="group flex items-center justify-between bg-slate-50 p-3 rounded-lg border border-slate-100 hover:bg-blue-50 hover:border-blue-200 transition">
-            <div class="flex items-center gap-2">
-                <i data-lucide="scale" class="w-4 h-4 text-slate-500 group-hover:text-blue-500"></i>
-                <span class="text-sm font-medium text-slate-700 group-hover:text-blue-600">Hukum Pidana</span>
+            <div id="date" class="text-sm md:text-base text-blue-200/80 font-medium tracking-wide uppercase">
+                Memuat tanggal...
             </div>
-            <span class="text-xs text-slate-400 group-hover:text-blue-500">→</span>
-        </a>
+        </header>
 
-    </div>
-
-</div>
-
-
-        <!-- Submenu Modul -->
-        <div id="submenu-modul" class="hidden ml-8 space-y-2">
-            <a href="1hpi.html" class="flex items-center bg-blue-50 p-3 rounded-lg text-sm text-slate-700 hover:bg-blue-100 transition">
-                <i class="fas fa-chevron-right text-xs text-slate-500 mr-2"></i>
-                Sistem Hukum Indonesia
-            </a>
-            <a href="2hki.html" class="flex items-center bg-blue-50 p-3 rounded-lg text-sm text-slate-700 hover:bg-blue-100 transition">
-                <i class="fas fa-chevron-right text-xs text-slate-500 mr-2"></i>
-                Hukum Pidana
-            </a>
-        </div>
-        
-        <!-- Submenu Tugas -->
-        <a href="https://forms.gle/KK3FAX13JApmZ67Q8" onclick="closeAllSubmenus()"
-            class="group flex items-center justify-between bg-white p-4 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
-            <div class="flex items-center gap-3">
-                <i data-lucide="upload-cloud" class="w-5 h-5 text-purple-500"></i>
-                <div>
-            <p class="font-medium text-slate-800">Pengumpulan Tugas</p>
-            <p class="text-xs text-slate-500">Silahkan upload tugas anda!</p>
+        <section class="flex flex-col gap-3">
+            <h2 class="text-xs font-semibold text-blue-300 uppercase tracking-widest px-2 mb-1 flex items-center gap-2">
+                <i class="fas fa-book-open"></i> Pembelajaran
+            </h2>
+            
+            <a href="#link-sistem-hukum" class="glass-button w-full py-4 px-6 rounded-2xl flex items-center justify-between group">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/40 transition-colors text-blue-300">
+                        <i class="fas fa-scale-balanced"></i>
+                    </div>
+                    <span class="font-medium">Sistem Hukum Indonesia</span>
                 </div>
-            </div>
-            <span class="text-slate-400 group-hover:text-purple-500">→</span>
-        </a>
+                <i class="fas fa-chevron-right text-sm opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+            </a>
 
-
-        <a href="https://docs.google.com/document/d/15lOzTp8KTRsKIQWDE4pP1uQsnhBy0FxJuNgtv_mXSvk/edit?usp=drive_link" onclick="closeAllSubmenus()"
-           class="group flex items-center justify-between bg-white p-4 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
-
-            <div class="flex items-center gap-3">
-                <i data-lucide="calendar" class="w-5 h-5 text-purple-500"></i>
-                <div>
-                    <p class="font-medium text-slate-800">Jadwal Kuliah</p>
-                    <p class="text-xs text-slate-500">Schedule</p>
+            <a href="#link-hukum-pidana" class="glass-button w-full py-4 px-6 rounded-2xl flex items-center justify-between group">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center group-hover:bg-red-500/40 transition-colors text-red-300">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <span class="font-medium">Hukum Pidana</span>
                 </div>
+                <i class="fas fa-chevron-right text-sm opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+            </a>
+        </section>
+
+        <section class="flex flex-col gap-3">
+            <h2 class="text-xs font-semibold text-blue-300 uppercase tracking-widest px-2 mb-1 flex items-center gap-2">
+                <i class="fas fa-briefcase"></i> Akademik
+            </h2>
+
+            <a href="#link-pengumpulan-tugas" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-semibold text-center shadow-lg shadow-blue-500/30 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-blue-500/50 flex items-center justify-center gap-3">
+                <i class="fas fa-upload"></i>
+                Pengumpulan Tugas
+            </a>
+
+            <a href="#link-jadwal-perkuliahan" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 text-white font-semibold text-center shadow-lg shadow-purple-500/30 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-purple-500/50 flex items-center justify-center gap-3">
+                <i class="far fa-calendar-alt"></i>
+                Jadwal Perkuliahan
+            </a>
+        </section>
+
+        <footer class="mt-6">
+            <div class="flex items-center justify-center gap-6">
+                <a href="#link-whatsapp" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-xl text-gray-300 hover:text-green-400 hover:scale-110 hover:bg-white/10 transition-all duration-300" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#link-instagram" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-xl text-gray-300 hover:text-pink-400 hover:scale-110 hover:bg-white/10 transition-all duration-300" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#link-facebook" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-xl text-gray-300 hover:text-blue-500 hover:scale-110 hover:bg-white/10 transition-all duration-300" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#link-youtube" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-xl text-gray-300 hover:text-red-500 hover:scale-110 hover:bg-white/10 transition-all duration-300" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
             </div>
+            <p class="text-center text-xs text-slate-500 mt-6 font-light tracking-wide">
+                © <span id="currentYear"></span> Portal Hukum. All rights reserved.
+            </p>
+        </footer>
 
-            <span class="text-slate-400 group-hover:text-purple-500">→</span>
-        </a>
+    </main>
 
-         <a href="http://103.180.164.103/index.php/login" onclick="closeAllSubmenus()"
-            class="group flex items-center justify-between bg-white p-4 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
-        
-                <div class="flex items-center gap-3">
-                <i data-lucide="clipboard-check" class="w-5 h-5 text-emerald-500"></i>
-                <div>
-                    <p class="font-medium text-slate-800">Absensi Mahasiswa</p>
-                    <p class="text-xs text-slate-500">Presensi & kehadiran</p>
-                </div>
-            </div>
-        
-            <span class="text-slate-400 group-hover:text-emerald-500">→</span>
-        </a>
-        
-        <a href="#" onclick="closeAllSubmenus()"
-           class="group flex items-center justify-between bg-white p-4 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
+    <script>
+        function updateClock() {
+            const now = new Date();
+            
+            // Konfigurasi opsi waktu
+            const timeOptions = { 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit', 
+                hour12: false // Menggunakan format 24 jam
+            };
+            
+            // Konfigurasi opsi tanggal (Bahasa Indonesia)
+            const dateOptions = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
 
-            <div class="flex items-center gap-3">
-                <i data-lucide="bar-chart" class="w-5 h-5 text-red-500"></i>
-                <div>
-                    <p class="font-medium text-slate-800">Nilai Mahasiswa</p>
-                    <p class="text-xs text-slate-500">Monitoring</p>
-                </div>
-            </div>
+            // Mengambil string waktu dan mengganti titik menjadi titik dua (untuk format jam id-ID tertentu)
+            let timeString = now.toLocaleTimeString('id-ID', timeOptions).replace(/\./g, ':');
+            let dateString = now.toLocaleDateString('id-ID', dateOptions);
 
-            <span class="text-slate-400 group-hover:text-red-500">→</span>
-        </a>
-
-    </div>
-
-    <!-- SOCIAL MEDIA -->
-    <div class="bg-white/80 backdrop-blur-lg rounded-2xl p-4 shadow-lg text-center mt-5 mb-5">
-        <p class="text-sm font-medium text-slate-700 mb-3">Media Sosial</p>
-        <div class="flex justify-center gap-3">
-            <a href="https://wa.me/6281360835870" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-green-500 text-white hover:bg-green-600 transition" title="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.facebook.com/share/1GzxmJDtcK/" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition" title="Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/safrankombih/?utm_source=ig_web_button_share_sheet" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-pink-500 text-white hover:bg-pink-600 transition" title="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://tiktok.com/@username" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-black text-white hover:bg-gray-800 transition" title="TikTok">
-                <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="https://youtube.com/channel/UCxxxxx" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-red-500 text-white hover:bg-red-600 transition" title="YouTube">
-                <i class="fab fa-youtube"></i>
-            </a>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="text-center mt-6 text-xs text-slate-400">
-        © 2026 safrankombih
-    </div>
-
-</div>
-
-<script>
-    lucide.createIcons();
-
-    function closeAllSubmenus() {
-        document.getElementById('submenu-modul').classList.add('hidden');
-        document.getElementById('modul-arrow').style.transform = 'rotate(0deg)';
-        document.getElementById('submenu-tugas').classList.add('hidden');
-        document.getElementById('tugas-arrow').style.transform = 'rotate(0deg)';
-    }
-
-    function toggleSubmenu(id) {
-        // Tutup submenu lain terlebih dahulu
-        if (id === 'modul') {
-            document.getElementById('submenu-tugas').classList.add('hidden');
-            document.getElementById('tugas-arrow').style.transform = 'rotate(0deg)';
-        } else if (id === 'tugas') {
-            document.getElementById('submenu-modul').classList.add('hidden');
-            document.getElementById('modul-arrow').style.transform = 'rotate(0deg)';
+            // Update DOM
+            document.getElementById('time').textContent = timeString;
+            document.getElementById('date').textContent = dateString;
+            document.getElementById('currentYear').textContent = now.getFullYear();
         }
+
+        // Memanggil fungsi pertama kali agar tidak ada jeda 1 detik saat dimuat
+        updateClock();
         
-        // Toggle submenu yang dipilih
-        const submenu = document.getElementById('submenu-' + id);
-        const arrow = document.getElementById(id + '-arrow');
-        
-        if (submenu.classList.contains('hidden')) {
-            submenu.classList.remove('hidden');
-            arrow.style.transform = 'rotate(90deg)';
-        } else {
-            submenu.classList.add('hidden');
-            arrow.style.transform = 'rotate(0deg)';
-        }
-    }
-
-    function updateClock() {
-        const now = new Date();
-
-        // JAM
-        let h = String(now.getHours()).padStart(2, '0');
-        let m = String(now.getMinutes()).padStart(2, '0');
-        let s = String(now.getSeconds()).padStart(2, '0');
-
-        document.getElementById('clock').innerText = `${h}:${m}:${s}`;
-
-        // TANGGAL FORMAT GOOGLE
-        const hari = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
-        const bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-
-        let dayName = hari[now.getDay()];
-        let date = now.getDate();
-        let month = bulan[now.getMonth()];
-        let year = now.getFullYear();
-
-        document.getElementById('date').innerText = `${dayName}, ${date} ${month} ${year}`;
-    }
-
-    setInterval(updateClock, 1000);
-    updateClock();
-</script>
-
+        // Memperbarui jam setiap 1 detik (1000 ms)
+        setInterval(updateClock, 1000);
+    </script>
 </body>
 </html>
