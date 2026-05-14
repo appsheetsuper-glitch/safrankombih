@@ -79,28 +79,35 @@
     <!-- Main Container -->
     <main class="w-full max-w-[380px] my-auto bg-white/40 backdrop-blur-2xl border border-white/60 rounded-[2.5rem] p-8 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] animate-float relative z-10">
         
-        <header class="text-center mb-8 fade-in-up delay-100">
-            <!-- Profile Image -->
-            <div class="relative w-24 h-24 mx-auto mb-4">
-                <div class="absolute inset-0 bg-black/5 rounded-full blur-md transform translate-y-2"></div>
-                <img 
-                    src="profile.jpg" 
-                    alt="Safran Kombih, M.H" 
-                    onerror="this.src='https://placehold.co/150x150/000/fff?text=SK'"
-                    class="relative w-full h-full object-cover rounded-full border-4 border-white shadow-sm"
-                >
+        <header class="mb-8 fade-in-up delay-100">
+            <!-- Profile Section (Horizontal) -->
+            <div class="flex items-center gap-4 mb-6">
+                <!-- Profile Image -->
+                <div class="relative w-16 h-16 shrink-0">
+                    <div class="absolute inset-0 bg-black/5 rounded-full blur-md transform translate-y-1"></div>
+                    <img 
+                        src="profile.jpg" 
+                        alt="Safran Kombih, M.H" 
+                        onerror="this.src='https://placehold.co/150x150/000/fff?text=SK'"
+                        class="relative w-full h-full object-cover rounded-full border-2 border-white shadow-sm"
+                    >
+                </div>
+                
+                <!-- Profile Info -->
+                <div class="flex flex-col">
+                    <h1 class="text-lg font-bold text-black tracking-tight leading-tight">Safran Kombih, M.H</h1>
+                    <p class="text-[10px] font-semibold text-gray-500 uppercase tracking-[0.15em] mt-0.5">Dosen Ilmu Hukum</p>
+                </div>
             </div>
-            
-            <!-- Profile Info -->
-            <h1 class="text-xl font-bold text-black tracking-tight mb-0.5">Safran Kombih, M.H</h1>
-            <p class="text-xs font-medium text-gray-500 uppercase tracking-widest mb-6">Dosen Ilmu Hukum</p>
 
-            <!-- Digital Clock -->
-            <div id="time" class="text-5xl font-bold tracking-tighter text-black mb-2 tabular-nums">
-                00:00:00
-            </div>
-            <div id="date" class="text-[10px] text-gray-400 font-bold tracking-[0.2em] uppercase">
-                Memuat tanggal...
+            <!-- Digital Clock Section (Centered below profile) -->
+            <div class="text-center pt-2 border-t border-black/5">
+                <div id="time" class="text-5xl font-bold tracking-tighter text-black mb-1 tabular-nums">
+                    00:00:00
+                </div>
+                <div id="date" class="text-[9px] text-gray-400 font-bold tracking-[0.2em] uppercase">
+                    Memuat tanggal...
+                </div>
             </div>
         </header>
 
